@@ -26,6 +26,27 @@ function moveCharacter() {
 
 setInterval(moveCharacter, 1);
 
+document.addEventListener("keydown", function (e) {
+  if (e.repeat) return;
+
+  if (e.key === "ArrowUp") {
+    direction = "up";
+  }
+  if (e.key === "ArrowDown") {
+    direction = "down";
+  }
+  if (e.key === "ArrowLeft") {
+    direction = "left";
+  }
+  if (e.key === "ArrowRight") {
+    direction = "right";
+  }
+});
+
+document.addEventListener("keyup", function (e) {
+  direction = null;
+});
+
 move(character).to(100, 250);
 
 move(newImage("assets/tree.png")).to(200, 450);
